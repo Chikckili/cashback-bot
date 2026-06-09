@@ -1,39 +1,3 @@
-import requests
-import datetime
-import os
-
-# ═══════════════════════════════════════════
-#  CONFIGURACIÓN
-# ═══════════════════════════════════════════
-TOKEN        = os.environ.get("TELEGRAM_TOKEN")
-GRUPO_ID     = "-1003592339798"
-LINK_IGRAAL  = "https://es.igraal.com/padrinazgo?padrino=AG_68d2c3d9a373f"
-LINK_TOPCASH = "https://www.topcashback.es/ref/member11374001026"
-LINK_LETY    = "https://letyshops.com/es/winwin?ww=40204461"
-# ═══════════════════════════════════════════
-
-def enviar(texto):
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-    payload = {
-        "chat_id": GRUPO_ID,
-        "text": texto,
-        "parse_mode": "HTML",
-        "disable_web_page_preview": True
-    }
-    r = requests.post(url, json=payload, timeout=15)
-    return r.json()
-
-def mensaje_topcashback():
-    return (
-        "💰 <b>CASHBACK DEL DÍA — TopCashback</b>\n"
-        "━━━━━━━━━━━━━━━━━━━━━\n\n"
-        "🛍️ <b>TEMU</b>\n"
-        "┌ Cliente NUEVO en Temu\n"
-        "│ 🔥 <b>Hasta el 80% de cashback</b>\n"
-        "│ Máximo 80€ por transacción\n"
-        "└ Solo si nunca has comprado en Temu\n\n"
-        "┌ Cliente existente en Temu\n"
-        "│ 💸 Desde el <b>5% de cashback</b>\n"
         "└ Máximo 80€ por transacción\n\n"
         "ℹ️ <i>Activa el cashback ANTES de tu primera compra. "
         "Usa el mismo navegador y dispositivo con el que te registraste en Temu. "
